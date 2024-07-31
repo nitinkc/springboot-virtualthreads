@@ -33,7 +33,7 @@ public class CallStats {
         }
     }
     
-    void putIntoLogMap(String key, String value) {
+    public void putIntoLogMap(String key, String value) {
         getLogMap().put(key, value);
     }
 

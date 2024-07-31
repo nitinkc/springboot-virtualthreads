@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mudra</groupId>
-	<artifactId>virtualthreadsspringboot</artifactId>
+	<artifactId>springboot-virtualthreads</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>virtualthreadsspringboot</name>
+	<name>springboot-virtualthreads</name>
 	<description>Virtual Threads providing the best book price</description>
 	<properties>
 		<java.version>21</java.version>

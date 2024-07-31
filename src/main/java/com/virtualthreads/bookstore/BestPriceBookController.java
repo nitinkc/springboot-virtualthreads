@@ -31,7 +31,7 @@ public class BestPriceBookController {
                 .min(Comparator.comparing(Book::getPrice))
                 .orElseThrow();
 
-            return new BestPriceResult(logStats, bestPriceBook, books);
+            return new BestPriceResult(bestPriceBook, books,logStats);
         } catch (Exception e) {
             throw new RuntimeException("Exception while calling getBestPrice",e);
         }

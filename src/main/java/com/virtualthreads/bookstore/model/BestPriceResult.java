@@ -4,5 +4,5 @@ import com.virtualthreads.bookstore.metrics.CallStats;
 
 import java.util.List;
 
-public record BestPriceResult(CallStats callStatistics, Book bestPriceDeal, List<Book> allDeals) {
+public record BestPriceResult(Book bestPriceDeal, List<Book> allDeals,CallStats callStatistics) {
 }
