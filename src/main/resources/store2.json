@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Book A",
+    "author": "Author X",
+    "price": 22.99
+  },
+  {
+    "title": "Book B",
+    "author": "Author Y",
+    "price": 14.99
+  }
+]
