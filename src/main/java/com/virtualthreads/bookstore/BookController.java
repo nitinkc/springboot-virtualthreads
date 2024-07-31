@@ -15,10 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 @RequiredArgsConstructor
-public class BestPriceBookController {
+public class BookController {
     public static final ScopedValue<CallStats> CALL_STATS = ScopedValue.newInstance();
     private final BookRetrievalService retrievalService;
-    
+
+    @GetMapping(path = "/platformThreads")
+    public String getThreadInfo() {
+        return Thread.currentThread().toString();
+    }
+
     @GetMapping("/book")
     public BestPriceResult getBestPriceForBook(@RequestParam String name) {
     	long start = System.currentTimeMillis();

@@ -16,6 +16,8 @@ import com.virtualthreads.bookstore.model.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static java.lang.StringTemplate.STR;
+
 @Service
 @Slf4j
 public class BookRetrievalService {
@@ -48,6 +50,7 @@ public class BookRetrievalService {
   }
 
   private Book getBook(String bookName, String storeName) throws IOException, InterruptedException {
+    log.info(STR."\{storeName} :: \{Thread.currentThread()}");
     String fileName;
     if (storeName.equals("store1")) {
       fileName = "src/main/resources/store1.json";
@@ -60,7 +63,7 @@ public class BookRetrievalService {
     Thread.sleep(randomWaitTime);
     List<Book> books = fetchBookFromStore(fileName);
     long end = System.currentTimeMillis();
-    CallStats logMap = BestPriceBookController.CALL_STATS.get();//Scoped Value
+    CallStats logMap = BookController.CALL_STATS.get();//Scoped Value
 
     logMap.putIntoLogMap(storeName, String.valueOf(end - start));
     logMap.putIntoLogMap(STR."wait Time for \{storeName}", String.valueOf(randomWaitTime));
@@ -74,6 +77,8 @@ public class BookRetrievalService {
   }
 
   private List<Book> fetchBookFromStore(String fileName) {
+    log.info(STR."\fetchBookFromStore :: \{Thread.currentThread()}");
+
     File file = new File(fileName);
     List<Book> books = new ArrayList<>();
     try {
