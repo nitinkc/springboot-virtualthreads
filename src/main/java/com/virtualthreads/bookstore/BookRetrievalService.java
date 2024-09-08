@@ -24,7 +24,7 @@ public class BookRetrievalService {
   private final ObjectMapper objectMapper = new ObjectMapper();
 
   public List<Book> getBookFromAllStores(String bookName) throws InterruptedException {
-    ThreadFactory threadFactory = Thread.ofVirtual().name("book-store-thr", 0).factory();
+    ThreadFactory threadFactory = Thread.ofVirtual().name("store-thread", 0).factory();
     try (var scope = new StructuredTaskScope<Book>("virtual-store", threadFactory)) {
       List<Subtask<Book>> bookTasks = new ArrayList<>();
 
